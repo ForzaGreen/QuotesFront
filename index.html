@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My project</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+</head>
+<body>
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <!-- my js app -->
+    <script src="js/app.js"></script>
+
+
+    <div class="page-header">
+        <h1>Welcome to Quotes' !</h1>
+    </div>
+
+    <div  ng-app="submitExample" class="panel panel-info">
+        <div class="panel-body">
+            <form ng-submit="submit()" ng-controller="ExampleController">
+                <input ng-model="book" type="book" class="form-control" id="exampleInputBook" placeholder="Book">
+                <input ng-model="author" type="author" class="form-control" id="exampleInputAuthor" placeholder="Author">
+                <textarea  type="text" name="text" ng-model="text" class="form-control" id="exampleInputQuotation" placeholder="Quotation" rows="3"></textarea>
+                <input class="navbar-right btn btn-primary" type="submit" id="submit" value="Post"></input>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="afterThis"></div>
+
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="img/user_32.png" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <blockquote>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="img/user_32.png" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <blockquote>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <footer>Another one famous in <cite title="Source Title">Another Title</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
