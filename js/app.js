@@ -1,14 +1,28 @@
 
 var app = angular.module('submitExample', []);
 
-app.controller('ExampleController', ['$scope', function($scope) {
+app.controller('ExampleController', ['$scope', '$http', function($scope, $http) {
+
+    //add quotes from data.json
+    $http.get("data.json").
+        then(function(response) {
+            for( i=0 ; i < response.data.length; i++) {
+                var quote = {};
+                quote.book = response.data[i].titleBook;
+                quote.author = response.data[i].author;
+                quote.quotation = response.data[i].textQuote;
+                addNewQuote(quote);
+            }
+        }, function() {
+            //Fail to load data
+        });
 
     var quote = {};
     $scope.submit = function() {
         //if ($scope.text && $scope.book && $scope.author) {
         if(1) {
             //send to database
-            //show the new citation
+            //show the new quote
             quote.book = $scope.book;
             quote.author = $scope.author;
             quote.quotation = $scope.text;
@@ -24,7 +38,7 @@ app.controller('ExampleController', ['$scope', function($scope) {
 }]);
 
 var addNewQuote = function(quote) {
-    console.log(quote);
+    //console.log(quote);
     var newQuoteNode =
         '<div class="panel panel-info">' +
             '<div class="panel-body">' +
