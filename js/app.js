@@ -1,4 +1,11 @@
 
+
+//initialize tooltips for existing quotes
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+
 var app = angular.module('submitExample', []);
 
 app.controller('ExampleController', ['$scope', '$http', function($scope, $http) {
@@ -51,13 +58,37 @@ var addNewQuote = function(quote) {
                     '<div class="media-body">' +
                         '<blockquote>' +
                             '<p>' + quote.quotation + '</p>' +
-                            '<footer>' + quote.author + ' in <cite title="Source Title">' + quote.book + '</cite></footer>' +
+                            '<footer vocab="http://schema.org/" resource="#record" typeof="Book Product">' +
+                                '<span property="author" role="button" data-toggle="tooltip" data-html="true" data-placement="top" title=' +
+                                '"<strong>' + quote.author + '</strong> (1829-1883)<br>' +
+                                '<u>Nationality</u>: French<br>' +
+                                '<u>Genre</u>: Novel, dramaturgy, theatre, poetry, essay, drawing<br>' +
+                                '">' + quote.author + '</span>'
+                                + ' in ' +
+                                '<cite title="Source Title">' +
+                                    '<span  property="name" role="button" data-container="body" data-toggle="popover" data-html="true" data-placement="top" data-content="<a href=#>Buy on Amazon..</a>">' + quote.book + '</span>' +
+                                '</cite>' +
+                            '</footer>' +
                         '</blockquote>' +
+                        '<div class="btn-group" role="group">' +
+                            '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>' +
+                            '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>' +
+                            '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button>' +
+                        '</div>' +
                     '</div>' +
                 '</div>' +
             '</div>' +
         '</div>';
     $("#afterThis").after(newQuoteNode);
+
+    //initialize the tooltip
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    //initialize the popover
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
 
 };
 
