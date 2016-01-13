@@ -46,13 +46,16 @@ app.controller('ExampleController', ['$scope', '$http', function($scope, $http) 
 
 var addNewQuote = function(quote) {
     //console.log(quote);
+
+    //generate a random number {0..9} to choose a random user picture
+    var randNbr = Math.floor(Math.random() * 10);
     var newQuoteNode =
         '<div class="panel panel-info">' +
             '<div class="panel-body">' +
                 '<div class="media">' +
                     '<div class="media-left">' +
                         '<a href="#">' +
-                            '<img class="media-object" src="img/user_32.png" alt="...">' +
+                            '<img class="media-object" src="img/lego/lego' + randNbr + '_50.jpg" alt="...">' +
                         '</a>' +
                     '</div>' +
                     '<div class="media-body">' +
